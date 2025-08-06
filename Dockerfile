@@ -1,5 +1,5 @@
 # Start from a Maven image to build the app
-FROM maven:3.8.7-jdk-17 AS build
+FROM maven:3.9.0-jdk-19 AS build
 
 # Set working directory
 WORKDIR /app
