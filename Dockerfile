@@ -1,5 +1,6 @@
 # Start from a Maven image to build the app
-FROM maven:3.9.0-jdk-19 AS build
+FROM maven:3.8.7-eclipse-temurin-19
+
 
 # Set working directory
 WORKDIR /app
