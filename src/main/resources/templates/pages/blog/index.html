@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/layout.html :: head}">
+</head>
+<body>
+    <div th:replace="~{fragments/layout.html :: header}"></div>
+    <!-- MAIN CONTENT - ARTICLE -->
+    <div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}">
+    </div>
+
+    <div class="py-2 flash-message message-error" th:text="${error}" th:if="${error}">
+    </div>
+
+    <article>
+        <div>
+            <p sec:authorize="hasRole('ADMIN')">
+                <a th:href="@{/blog/create}">Create New</a>
+            </p>
+
+            <ul class="list-group">
+                <li th:each="article: ${articles}" class="list-group-item">
+                    <h2><a th:href="@{'/blog/' + ${article.articleId}}" th:text="${article.title}"></a> </h2>
+                    <p th:text="${article.description}"></p>
+                    <p sec:authorize="hasRole('ADMIN')">
+                        <a th:href="@{'/blog/edit/' + ${article.articleId}}">Edit</a>
+                        <a th:href="@{'/blog/delete/' + ${article.articleId}}">Remove</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </article>
+    <footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>
