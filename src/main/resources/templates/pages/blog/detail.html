@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="">
+
 <head th:replace="~{fragments/layout.html :: head}">
 </head>
+
 <body>
-<div th:replace="~{fragments/layout.html :: header}"></div>
-<!-- MAIN CONTENT - ARTICLE -->
-<article>
-    <div>
-        <section>
-            <p th:utext="${article.content}"></p>
-
+    <div th:replace="~{fragments/layout.html :: header}"></div>
+    <!-- MAIN CONTENT - ARTICLE -->
+    <article>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <section class="d-flex flex-column justify-content-center align-items-center">
+                <h1 th:text="${article.title}" class="article-heading"></h1>
+                <div id="article-description">
+                    <p th:text="${article.description}" class="article-text"></p>
+                </div>
+                <div id="article-content">
+                    <p th:utext="${article.content}" class="article-text"></p>
+                </div>
+                <img id="article-detail" th:src="${article.imgUrl}" />
+            </section>
             <a th:href="@{/blog}">Back to list</a>
-        </section>
-    </div>
-</article>
+        </div>
+    </article>
 
-<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+    <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>
+
 </html>

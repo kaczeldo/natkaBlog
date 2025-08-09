@@ -16,6 +16,8 @@ public class ArticleDTO {
     @NotBlank(message = "Fill in content.")
     private String content;
 
+    private String imgUrl;
+
     public String getContent() {
         return content;
     }
@@ -46,5 +48,13 @@ public class ArticleDTO {
 
     public void setArticleId(long articleId) {
         this.articleId = articleId;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

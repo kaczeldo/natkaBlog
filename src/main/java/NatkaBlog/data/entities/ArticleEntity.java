@@ -17,6 +17,9 @@ public class ArticleEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
+    @Column()
+    private String imgUrl;
+
     public long getArticleId() {
         return articleId;
     }
@@ -47,6 +50,14 @@ public class ArticleEntity {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
 

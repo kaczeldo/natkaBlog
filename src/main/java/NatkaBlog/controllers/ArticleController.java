@@ -4,6 +4,7 @@ import NatkaBlog.models.dto.ArticleDTO;
 import NatkaBlog.models.dto.mappers.ArticleMapper;
 import NatkaBlog.models.exceptions.ArticleNotFoundException;
 import NatkaBlog.models.services.ArticleService;
+import NatkaBlog.models.services.ImageStorageService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -11,13 +12,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
 @RequestMapping("/blog")
 public class ArticleController {
+    @Autowired
+    private ImageStorageService imageStorageService;
 
     @Autowired
     private ArticleService articleService;
@@ -43,9 +48,17 @@ public class ArticleController {
     @PostMapping("create")
     public String createArticle(@Valid @ModelAttribute ArticleDTO article,
                                 BindingResult result,
-                                RedirectAttributes redirectAttributes) {
+                                RedirectAttributes redirectAttributes,
+                                @RequestParam("imageFile")MultipartFile imageFile)
+    throws IOException {
+
         if (result.hasErrors()) {
             return renderCreateForm(article);
+        }
+
+        if(!imageFile.isEmpty()){
+            String imgUrl = imageStorageService.store(imageFile);
+            article.setImgUrl(imgUrl);
         }
 
         articleService.create(article);
@@ -83,10 +96,16 @@ public class ArticleController {
             @PathVariable long articleId,
             @Valid ArticleDTO article,
             BindingResult result,
-            RedirectAttributes redirectAttributes
-    ) {
+            RedirectAttributes redirectAttributes,
+            @RequestParam("imageFile")MultipartFile imageFile
+    ) throws IOException {
         if (result.hasErrors()){
             return renderEditForm(articleId, article);
+        }
+
+        if(!imageFile.isEmpty()){
+            String imgUrl = imageStorageService.store(imageFile);
+            article.setImgUrl(imgUrl);
         }
 
         article.setArticleId(articleId);

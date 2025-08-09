@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="" xmlns:sec="http://www.w3.org/1999/xhtml">
+
 <head th:replace="~{fragments/layout.html :: head}">
 </head>
+
 <body>
     <div th:replace="~{fragments/layout.html :: header}"></div>
     <!-- MAIN CONTENT - ARTICLE -->
@@ -11,24 +13,37 @@
     <div class="py-2 flash-message message-error" th:text="${error}" th:if="${error}">
     </div>
 
-    <article>
-        <div>
+    <article class="d-flex flex-column justify-content-center align-items-center">
+        <div id="article-wrapper">
             <p sec:authorize="hasRole('ADMIN')">
                 <a th:href="@{/blog/create}">Create New</a>
             </p>
 
             <ul class="list-group">
-                <li th:each="article: ${articles}" class="list-group-item">
-                    <h2><a th:href="@{'/blog/' + ${article.articleId}}" th:text="${article.title}"></a> </h2>
-                    <p th:text="${article.description}"></p>
-                    <p sec:authorize="hasRole('ADMIN')">
-                        <a th:href="@{'/blog/edit/' + ${article.articleId}}">Edit</a>
-                        <a th:href="@{'/blog/delete/' + ${article.articleId}}">Remove</a>
-                    </p>
+                <li th:each="article: ${articles}"
+                    class="list-group-item d-flex flex-column justify-content-center align-items-center"
+                    id="one-article">
+                    <a th:href="@{'/blog/' + ${article.articleId}}" class="overview-article-link">
+                        <div class="d-flex flex-column justify-content-center align-items-center">
+                            <h2 th:text="${article.title}" class="overview-heading"> </h2>
+                            <div class="row" id="article-inner-wrapper">
+                                <p th:text="${article.description}" class="col-12 col-md-6"></p>
+
+                                <img th:src="@{${#strings.replace(article.imgUrl, '/images/', '/images/thumb_')}}"
+                                    class="col-12 col-md-6 image-index" />
+                            </div>
+                            <p sec:authorize="hasRole('ADMIN')">
+                                <a th:href="@{'/blog/edit/' + ${article.articleId}}">Edit</a>
+                                <a th:href="@{'/blog/delete/' + ${article.articleId}}">Remove</a>
+                            </p>
+                        </div>
+                    </a>
                 </li>
+
             </ul>
         </div>
     </article>
     <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>
+
 </html>
