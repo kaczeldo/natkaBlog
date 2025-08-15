@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="">
-    <head th:replace="~{fragments/layout.html :: head}">
-    </head>
-    <body>
-        <div th:replace="~{fragments/layout.html :: header}"></div>
-            <!-- MAIN CONTENT - ARTICLE -->
-         <form class="d-flex flex-column gap-2"
-            method="post"
-            th:action="@{/blog/create}"
-            th:object="${articleDTO}"
-               enctype="multipart/form-data">
+
+<head th:replace="~{fragments/layout.html :: head}">
+</head>
+
+<body>
+    <!-- HEADER -->
+
+    <div th:replace="~{fragments/layout.html :: header}"></div>
+
+    <!-- FLASH MESSAGE -->
+    <div th:if="${success}" class="alert alert-success" role="alert">
+        <span th:text="${success}"></span>
+    </div>
+
+    <!-- MAIN CONTENT - ARTICLE -->
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="my-3">Create article</h1>
+        <form class="d-flex flex-column gap-2 contact-form" method="post" th:action="@{/blog/create}"
+            th:object="${articleDTO}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title" class="control-label">Title</label>
                 <input id="title" th:field="*{title}" class="form-control" />
-                <small></small>
+                <small class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></small>
             </div>
             <div class="form-group">
                 <label for="description" class="control-label">Description</label>
                 <textarea id="description" th:field="*{description}" class="form-control"></textarea>
-                <small></small>
+                <small class="text-danger" th:if="${#fields.hasErrors('description')}"
+               th:errors="*{description}"></small>
             </div>
             <div class="form-group">
                 <label for="content" class="control-label">Content</label>
                 <textarea id="content" th:field="*{content}" class="form-control"></textarea>
-                <small></small>
+                <small class="text-danger" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></small>
             </div>
-             <div class="form-group">
-                 <label for="picture" class="control-label">Upload Picture</label>
-                 <input name="imageFile" id="picture" class="form-control" type="file">
-             </div>
             <div class="form-group">
-                <button type="submit">Save</button>
+                <label for="picture" class="control-label">Upload Picture</label>
+                <input name="imageFile" id="picture" class="form-control" type="file">
             </div>
+            <div class="form-group d-flex justify-content-center">
+                <button type="submit" class="button-submit">Save</button>
+            </div>
+        </form>
+    </div>
 
-         </form>
+    <footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
 
-        <footer th:replace="~{fragments/layout.html :: footer}"></footer>
-    </body>
 </html>

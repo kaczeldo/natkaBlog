@@ -15,4 +15,6 @@ public class HomeController {
     public String renderAbout() {
         return "pages/home/about";
     }
+
+
 }

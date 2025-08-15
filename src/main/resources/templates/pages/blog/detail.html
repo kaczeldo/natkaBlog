@@ -17,9 +17,13 @@
                 <div id="article-content">
                     <p th:utext="${article.content}" class="article-text"></p>
                 </div>
-                <img id="article-detail" th:src="${article.imgUrl}" />
+                <img class="article-detail" th:src="${article.imgUrl}" />
             </section>
-            <a th:href="@{/blog}">Back to list</a>
+
+            <a th:href="@{/blog}">
+                <div class="button-submit">BACK</div>
+            </a>
+
         </div>
     </article>
 

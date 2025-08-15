@@ -6,19 +6,24 @@
 
 <body>
     <div th:replace="~{fragments/layout.html :: header}"></div>
+
+    <!-- FLASH MESSAGE -->
+    <div th:if="${success}" class="alert alert-success" role="alert">
+        <span th:text="${success}"></span>
+    </div>
+
+    <div th:if="${error}" class="alert alert-error" role="alert">
+        <span th:text="${error}"></span>
+    </div>
+
     <!-- MAIN CONTENT - ARTICLE -->
-    <div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}">
-    </div>
-
-    <div class="py-2 flash-message message-error" th:text="${error}" th:if="${error}">
-    </div>
-
     <article class="d-flex flex-column justify-content-center align-items-center">
+        <p sec:authorize="hasRole('ADMIN')">
+            <a th:href="@{/blog/create}">
+                Create New
+            </a>
+        </p>
         <div id="article-wrapper">
-            <p sec:authorize="hasRole('ADMIN')">
-                <a th:href="@{/blog/create}">Create New</a>
-            </p>
-
             <ul class="list-group">
                 <li th:each="article: ${articles}"
                     class="list-group-item d-flex flex-column justify-content-center align-items-center"

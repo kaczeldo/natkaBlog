@@ -15,7 +15,7 @@
     src: url(../fonts/HomemadeApple-Regular.ttf);
 }
 
-/*Whole page, body stylings*/
+/*Whole page, body stylings, general element stylings*/
 body {
     min-height: 100vh;
     width: 100%;
@@ -24,9 +24,33 @@ body {
     justify-content: center;
 }
 
+.button-submit {
+    width: 100px;
+    height: 50px;
+    background-color: #D1EFB5;
+    color: #443627;
+    border: 1px solid #FF934F;
+    font-weight: bold;
+    margin: 20px;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-submit:hover {
+    background-color: #443627;
+    color: #D1EFB5;
+}
+
+.button-submit:active {
+    border: 2px solid black;
+}
+
+
 /*HEADER stylings*/
 
-body > header {
+body>header {
     z-index: 1;
     width: 100%;
     top: 0;
@@ -37,12 +61,12 @@ body > header {
 
 #header-image {
     background-color: white;
-    height: 200px;    
+    height: 200px;
 }
 
 #nav-menu {
     background-color: black;
-    position: sticky; 
+    position: sticky;
     top: 0;
 }
 
@@ -86,11 +110,6 @@ body > header {
     color: #443627;
 }
 
-.about-header {
-    width: 70px;
-    margin: 10px;
-}
-
 /* Main content (Article) styling*/
 #article-inner-wrapper {
     width: 250px;
@@ -108,11 +127,11 @@ body > header {
     }
 }
 
-#article-inner-wrapper > p {
+#article-inner-wrapper>p {
     max-width: 250px;
 }
 
-#article-wrapper > p > a {
+#article-wrapper>p>a {
     text-decoration: none;
     color: black;
 }
@@ -134,14 +153,14 @@ body > header {
     }
 }
 
-#one-article {    
+#one-article {
     margin: 20px;
     background-color: #fafff7;
     color: #443627;
-    border: 2px solid black;  
+    border: 2px solid black;
 }
 
-#one-article > a {
+#one-article>a {
     text-decoration: none;
     color: black;
 }
@@ -151,7 +170,7 @@ body > header {
     color: black;
 }
 
-#one-article > a > div > h2 {
+#one-article>a>div>h2 {
     font-style: italic;
 }
 
@@ -162,7 +181,7 @@ body > header {
     text-align: center;
 }
 
-img#article-detail {
+img.article-detail {
     width: 400px;
     margin: 20px;
     border: 1px solid black;
@@ -170,13 +189,13 @@ img#article-detail {
 }
 
 @media (min-width: 768px) {
-    img#article-detail {
+    img.article-detail {
         width: 600px;
     }
 }
 
 @media (min-width: 1000px) {
-    img#article-detail {
+    img.article-detail {
         max-width: 900px;
     }
 }
@@ -185,6 +204,7 @@ img#article-detail {
     margin-top: 50px;
     margin-bottom: 25px;
     font-style: italic;
+    font-family: HomemadeApple;
 }
 
 .overview-heading {
@@ -205,26 +225,122 @@ img#article-detail {
 
 .image-index {
     border: 1px solid black;
-    border-radius: 15%;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border-radius: 10%;
+}
+
+#article-inner-wrapper .col-12.col-md-6 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#article-inner-wrapper p.col-12.col-md-6 {
+    margin-right: 20px;
 }
 
 .article-text {
     text-align: center;
 }
 
+/* Main content - CONTACT PAGE */
+.contact-stripe {
+    background-color: #D1EFB5;
+    color: #443627;
+    border: 1px solid #FF934F;
+    width: 100%;
+    height: 200px;
+    margin: 20px;
+}
+
+@media (min-width: 768px) {
+    .contact-stripe {
+        height: 100px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .contact-stripe {
+        height: 50px;
+    }
+}
+
+.contact-stripe-label {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.contact-form {
+    width: 300px;
+}
+
+@media (min-width: 768px) {
+    .contact-form {
+        width: 500px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .contact-form {
+        width: 700px;
+    }
+}
+
+.submit-contact {
+    width: 80px;
+    height: 40px;
+    background-color: #D1EFB5;
+    color: #443627;
+    border: 1px solid #FF934F;
+    font-weight: bold;
+    margin: 20px;
+    border-radius: 15%;
+}
+
+.submit-contact:hover {
+    background-color: #443627;
+    color: #D1EFB5;
+}
+
+.submit-contact:active {
+    border: 2px solid black;
+}
+
+label.control-label {
+    margin-top: 20px;
+}
+
+.contact-link {
+    color: #518fab;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    color: #FF934F;
+}
+
+.contact-link:active {
+    color: #443627;
+}
+
 /*Footer stylings*/
 
 #footer {
-    height: 200px;
-    background-color: blue;
+    background-image: url('/images/coverOrezany.jpg');
+    background-size: cover;
+    /* makes it cover the entire element */
+    background-position: center;
+    /* centers the image */
+    background-repeat: no-repeat;
+    /* no tiling */
+    width: 100%;
+    /* or whatever width you want */
+    height: 300px;
 }
 
 .footer-link {
     height: 50px;
-    width: 80px;
-    border: 1px solid black;
-    background-color: #1b5891;
-    margin: 1px;
+    width: 50px;
+    margin: 10px;
 }
-
-
