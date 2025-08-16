@@ -18,20 +18,6 @@
 
     <div class="d-flex flex-column justify-content-center align-items-center">
         <h1 class="my-3 fst-italic">Contact me!</h1>
-        <div class="row contact-stripe d-flex justify-content-around align-items-center">
-            <div class="col-12 col-md-2">
-                <span class="contact-stripe-label">Email: </span>yogawithtadynaty@gmail.com
-            </div>
-            <div class="col-12 col-md-2">
-                <span class="contact-stripe-label">Phone/whatsapp: </span>+32485430305
-            </div>
-            <div class="col-12 col-md-2">
-                <span class="contact-stripe-label">Instagram: </span>
-                <a href="https://www.instagram.com/yoga.withnaty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="contact-link"
-                target="_blank">
-                    yoga.withnaty</a>
-            </div>
-        </div>
 
         <h2 class="my-2">Send email right from here.</h2>
         <form th:action="@{/contact}" method="post" th:object="${contactDTO}" class="contact-form">

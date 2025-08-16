@@ -49,7 +49,9 @@ public class ArticleController {
     public String createArticle(@Valid @ModelAttribute ArticleDTO article,
                                 BindingResult result,
                                 RedirectAttributes redirectAttributes,
-                                @RequestParam("imageFile")MultipartFile imageFile)
+                                @RequestParam("imageFile")MultipartFile imageFile,
+                                @RequestParam("imageFile2")MultipartFile imageFile2,
+                                @RequestParam("imageFile3")MultipartFile imageFile3)
     throws IOException {
 
         if (result.hasErrors()) {
@@ -59,6 +61,16 @@ public class ArticleController {
         if(!imageFile.isEmpty()){
             String imgUrl = imageStorageService.store(imageFile);
             article.setImgUrl(imgUrl);
+        }
+
+        if (!imageFile2.isEmpty()) {
+            String imgUrl2 = imageStorageService.store(imageFile2);
+            article.setImgUrl2(imgUrl2);
+        }
+
+        if (!imageFile3.isEmpty()) {
+            String imgUrl3 = imageStorageService.store(imageFile3);
+            article.setImgUrl3(imgUrl3);
         }
 
         articleService.create(article);
@@ -97,7 +109,9 @@ public class ArticleController {
             @Valid ArticleDTO article,
             BindingResult result,
             RedirectAttributes redirectAttributes,
-            @RequestParam("imageFile")MultipartFile imageFile
+            @RequestParam("imageFile")MultipartFile imageFile,
+            @RequestParam("imageFile2")MultipartFile imageFile2,
+            @RequestParam("imageFile3")MultipartFile imageFile3
     ) throws IOException {
         if (result.hasErrors()){
             return renderEditForm(articleId, article);
@@ -106,6 +120,16 @@ public class ArticleController {
         if(!imageFile.isEmpty()){
             String imgUrl = imageStorageService.store(imageFile);
             article.setImgUrl(imgUrl);
+        }
+
+        if (!imageFile2.isEmpty()) {
+            String imgUrl2 = imageStorageService.store(imageFile2);
+            article.setImgUrl2(imgUrl2);
+        }
+
+        if (!imageFile3.isEmpty()) {
+            String imgUrl3 = imageStorageService.store(imageFile3);
+            article.setImgUrl3(imgUrl3);
         }
 
         article.setArticleId(articleId);

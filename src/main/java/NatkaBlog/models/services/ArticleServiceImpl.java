@@ -8,6 +8,7 @@ import NatkaBlog.models.exceptions.ArticleNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
@@ -21,6 +22,7 @@ public class ArticleServiceImpl implements ArticleService{
 
     @Override
     public void create(ArticleDTO article) {
+        article.setDateCreated(LocalDate.now());
         ArticleEntity newArticle = articleMapper.toEntity(article);
 
         articleRepository.save(newArticle);

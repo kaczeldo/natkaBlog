@@ -2,6 +2,8 @@ package NatkaBlog.data.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 public class ArticleEntity {
     @Id
@@ -17,8 +19,41 @@ public class ArticleEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
+    @Column(nullable = false)
+    private LocalDate dateCreated;
+
     @Column()
     private String imgUrl;
+
+    @Column()
+    private String imgUrl2;
+
+    @Column()
+    private String imgUrl3;
+
+    public String getImgUrl3() {
+        return imgUrl3;
+    }
+
+    public void setImgUrl3(String imgUrl3) {
+        this.imgUrl3 = imgUrl3;
+    }
+
+    public String getImgUrl2() {
+        return imgUrl2;
+    }
+
+    public void setImgUrl2(String imgUrl2) {
+        this.imgUrl2 = imgUrl2;
+    }
+
+    public LocalDate getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
+    }
 
     public long getArticleId() {
         return articleId;

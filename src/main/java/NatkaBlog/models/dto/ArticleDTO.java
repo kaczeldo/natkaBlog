@@ -3,6 +3,8 @@ package NatkaBlog.models.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalDate;
+
 public class ArticleDTO {
     private long articleId;
 
@@ -16,7 +18,37 @@ public class ArticleDTO {
     @NotBlank(message = "Fill in content.")
     private String content;
 
+    private LocalDate dateCreated;
+
     private String imgUrl;
+
+    private String imgUrl2;
+
+    private String imgUrl3;
+
+    public LocalDate getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public String getImgUrl2() {
+        return imgUrl2;
+    }
+
+    public void setImgUrl2(String imgUrl2) {
+        this.imgUrl2 = imgUrl2;
+    }
+
+    public String getImgUrl3() {
+        return imgUrl3;
+    }
+
+    public void setImgUrl3(String imgUrl3) {
+        this.imgUrl3 = imgUrl3;
+    }
 
     public String getContent() {
         return content;
