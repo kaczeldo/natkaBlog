@@ -23,12 +23,12 @@ public class AccountController {
 
     @GetMapping("login")
     public String renderLogin() {
-        return "/pages/account/login";
+        return "pages/account/login";
     }
 
     @GetMapping("register")
     public String renderRegister(@ModelAttribute UserDTO userDTO) {
-        return "/pages/account/register";
+        return "pages/account/register";
     }
 
     @PostMapping("register")

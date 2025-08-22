@@ -132,6 +132,10 @@ public class ArticleController {
             article.setImgUrl3(imgUrl3);
         }
 
+        System.out.println("DEBUG: Current imgUrl = " + article.getImgUrl());
+        System.out.println("DEBUG: Current imgUrl2 = " + article.getImgUrl2());
+        System.out.println("DEBUG: Current imgUrl3 = " + article.getImgUrl3());
+
         article.setArticleId(articleId);
         articleService.edit(article);
 

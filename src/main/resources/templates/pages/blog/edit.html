@@ -34,6 +34,18 @@
         <input name="imageFile" id="picture" class="form-control" type="file">
     </div>
     <div class="form-group">
+        <label for="picture2" class="control-label">Upload 2nd Picture</label>
+        <!-- keep existing imgUrl in a hidden field -->
+        <input type="hidden" th:field="*{imgUrl2}" />
+        <input name="imageFile2" id="picture2" class="form-control" type="file">
+    </div>
+    <div class="form-group">
+        <label for="picture3" class="control-label">Upload 3rd Picture</label>
+        <!-- keep existing imgUrl in a hidden field -->
+        <input type="hidden" th:field="*{imgUrl3}" />
+        <input name="imageFile3" id="picture3" class="form-control" type="file">
+    </div>
+    <div class="form-group">
         <button type="submit" class="button-submit">Save</button>
     </div>
 

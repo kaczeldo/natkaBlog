@@ -370,7 +370,7 @@ div.card-body > a {
 
 /* Main content HOME page */
 #home-body {
-    background-image: url('../images/IMG-20250723-WA0007.jpg');
+    background-image: url('../images/IMG-20250723-WA0006.jpg');
     background-size: cover;
     /* makes it cover the entire element */
     background-position: center;
@@ -384,13 +384,13 @@ div.card-body > a {
 .home-paragraph-first {
     font-size: 1.3em;
     margin-top: 100px;
-    color: rgb(255, 0, 128);
+    color: rgb(176, 246, 255);
     margin-bottom: 150px;
 }
 
 .home-headline {
-    margin-top: 200px;
-    color: rgb(255, 0, 128);
+    margin-top: 300px;
+    color: rgb(176, 246, 255);
     font-weight: bold;
     font-family: NothingYouCouldDo;
 }
