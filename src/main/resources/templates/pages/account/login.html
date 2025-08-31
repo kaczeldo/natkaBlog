@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="">
+
 <head th:replace="~{fragments/layout.html :: head}">
 </head>
+
 <body>
     <div th:replace="~{fragments/layout.html :: header}"></div>
-    <!-- MAIN CONTENT - ARTICLE -->
-    <div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}"></div>
-    <div class="py-2 flash-message message-error" th:if="${param.error}">Incorrect email or password.</div>
 
-    <article>
-        <header>
-            <h1>Login</h1>
-        </header>
+    <!-- Div with whole content - I need to move it below the navbar -->
+    <div style="margin-top: 200px;">
+        <!-- MAIN CONTENT - ARTICLE -->
+        <div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}"></div>
+        <div class="py-2 flash-message message-error" th:if="${param.error}">Incorrect email or password.</div>
 
-        <section>
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <form th:action="@{/account/login}" method="post" class="d-flex flex-column gap-2">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input id="email" name="email" type="text" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input id="password" name="password" type="password" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="clanky-tlacitko align-self-start">Login</button>
-                        </div>
-                        <div class="form-group">
-                            <p>
-                                <a th:href="@{/account/register}">Register</a>
-                            </p>
-                        </div>
-                    </form>
+
+        <article>
+            <header>
+                <h1>Login</h1>
+            </header>
+
+            <section>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <form th:action="@{/account/login}" method="post" class="d-flex flex-column gap-2">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="text" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" name="password" type="password" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="clanky-tlacitko align-self-start">Login</button>
+                            </div>
+                            <div class="form-group">
+                                <p>
+                                    <a th:href="@{/account/register}">Register</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </article>
+            </section>
+        </article>
+    </div>
 
     <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>
+
 </html>

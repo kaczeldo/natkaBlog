@@ -20,6 +20,11 @@
     src: url(../fonts/NothingYouCouldDo-Regular.ttf);
 }
 
+@font-face {
+    font-family: BebasNeue;
+    src: url(../fonts/BebasNeue-Regular.ttf);
+}
+
 /*Whole page, body stylings, general element stylings*/
 body {
     min-height: 100vh;
@@ -54,65 +59,101 @@ body {
 
 
 /*HEADER stylings*/
-
 body>header {
-    z-index: 1;
-    width: 100%;
-    top: 0;
-    width: 100%;
-    top: 0;
-    position: relative;
-}
-
-#header-image {
     background-color: white;
-    height: 200px;
-}
-
-#nav-menu {
-    background-color: black;
-    position: sticky;
     top: 0;
+    position: fixed;
+    width: 100%;
+    border-bottom: 2px solid #443627;
+    z-index: 1050;
 }
 
-#logo {
-    height: 150px;
-    width: 150px;
+a.navbar-brand>img {
+    width: 65px;
+    height: 65px;
+    margin: auto 10px auto 10px;
 }
 
-.logo {
-    font-family: HomemadeApple;
+@media (min-width: 768px) {
+    a.navbar-brand>img {
+        width: 70px;
+        height: 70px;
+    }
 }
 
-.my-link {
-    height: 50px;
-    width: 80px;
-    border: 3px solid white;
-    background-color: black;
-    margin: 3px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 20%;
+@media (min-width: 1000px) {
+    a.navbar-brand>img {
+        width: 75px;
+        height: 75px;
+    }
 }
 
-.my-link:hover {
-    border: 3px solid black;
-    background-color: white;
+a.navbar-brand>div {
+    font-size: 1.2em;
+    font-family: NothingYouCouldDo;
+}
+
+@media (min-width: 768px) {
+    a.navbar-brand>div {
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 1000px) {
+    a.navbar-brand>div {
+        font-size: 1.4em;
+    }
+}
+
+a.navbar-brand>div>div.naty {
+    font-weight: bold;
+}
+
+li.nav-item>a.nav-link {
+    font-size: 1em;
+    text-transform: uppercase;
     color: black;
+    margin: auto 15px auto 15px;
+
 }
 
-.my-link:active {
-    border: 3px solid black;
-    background-color: black;
-    color: white;
+li.nav-item>a.nav-link:hover {
+    border-bottom: 2px solid #FF934F;
+
 }
 
-.my-link.active {
+li.nav-item>a.nav-link.kontakt {
     background-color: #FF934F;
-    color: #443627;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding-left: 10px;
+}
+
+li.nav-item>a.nav-link.kontakt:hover {
+    background-color: #ca723c;
+    border: 1px solid #443627;
+
+}
+
+.custom-toggler {
+    border: 2px solid black;
+    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.custom-toggler span {
+    display: block;
+    height: 3px;
+    width: 24px;
+    background-color: black;
+    border-radius: 2px;
 }
 
 /* Main content (Article) styling*/
@@ -209,7 +250,8 @@ img.article-detail {
     margin-top: 50px;
     margin-bottom: 25px;
     font-style: italic;
-    font-family: HomemadeApple;
+    font-family: NothingYouCouldDo;
+    font-weight: bold;
 }
 
 .overview-heading {
@@ -250,31 +292,6 @@ img.article-detail {
 }
 
 /* Main content - CONTACT PAGE */
-.contact-stripe {
-    background-color: #D1EFB5;
-    color: #443627;
-    border: 1px solid #FF934F;
-    width: 100%;
-    height: 200px;
-    margin: 20px;
-}
-
-@media (min-width: 768px) {
-    .contact-stripe {
-        height: 100px;
-    }
-}
-
-@media (min-width: 1000px) {
-    .contact-stripe {
-        height: 50px;
-    }
-}
-
-.contact-stripe-label {
-    font-style: italic;
-    font-weight: bold;
-}
 
 .contact-form {
     width: 300px;
@@ -348,12 +365,12 @@ img.card-img-top {
     margin-bottom: 30px;
 }
 
-a > h4.card-title {
+a>h4.card-title {
     text-decoration: none;
     color: black;
 }
 
-div.card-body > a {
+div.card-body>a {
     text-decoration: none;
 }
 
@@ -369,8 +386,9 @@ div.card-body > a {
 }
 
 /* Main content HOME page */
+
 #home-body {
-    background-image: url('../images/IMG-20250723-WA0006.jpg');
+    background-image: url('../images/maditation-mountains-cut.jpg');
     background-size: cover;
     /* makes it cover the entire element */
     background-position: center;
@@ -378,34 +396,112 @@ div.card-body > a {
     background-repeat: no-repeat;
     /* no tiling */
     width: 100%;
-    background-attachment: fixed; 
+    background-attachment: fixed;
 }
 
-.home-paragraph-first {
-    font-size: 1.3em;
-    margin-top: 100px;
-    color: rgb(176, 246, 255);
-    margin-bottom: 150px;
+#home-whole-content {
+    margin-top: 180px;
+}
+
+.home-section-div {
+    width: 100%;
+}
+
+.home-solid-background-div {
+    background-color: #ffffff;
 }
 
 .home-headline {
-    margin-top: 300px;
     color: rgb(176, 246, 255);
     font-weight: bold;
-    font-family: NothingYouCouldDo;
+    font-family: BebasNeue;
+    margin: 20px;
+    text-align: center;
 }
 
-#home-second-par {
-    width: 100%;
-    height: 800px;
+.home-solid-background-div > h1 {
+    color: #ca723c;
+}
+
+.home-inline-par-img {
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+@media (min-width: 768px) {
+    .home-inline-par-img{
+        height: 360px;
+    }
+}
+
+@media (min-width: 950px) {
+    .home-inline-par-img{
+        height: 500px;
+    }
+}
+
+.home-inline-par-icon{
+    width: 150px;
+    height: 150px;
+    border: 1px solid grey;
+    border-radius: 100%;
+    margin: 20px;
+}
+
+.home-paragraph {
+    margin: 20px;
+    text-align: center;
+    max-width: 750px;
+    font-size: 1.3em;
+    color: #443627;
+}
+
+.home-h2-headlines {
+    margin: auto 20px auto 20px;
+    font-weight: 900;
+    font-size: 2.3em;
+    font-family: BebasNeue;
+    color: #443627;
+    text-align: center;
+}
+
+.home-transparent-par {
+    color: rgb(176, 246, 255);
+}
+
+.home-inline-section{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: #518fab;
-    margin-top: 200px;
+    justify-content: space-between;
+}
+
+.transparent-section {
+    min-height: 500px;
+}
+
+.home-contact-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #24c46c;
+}
+
+.home-contact-link:hover {
+    color: #c424bc;
+}
+
+.home-contact-link:visited {
+    color: #24c46c;
 }
 
 /*Footer stylings*/
+
+footer {
+    border-top: 2px solid black;
+}
 
 #footer {
     background-image: url('/images/coverOrezany.jpg');
@@ -426,7 +522,7 @@ div.card-body > a {
 }
 
 #footer-stripe {
-    height: 50px;
+    background-color: white;
+    color: black;
     width: 100%;
-    background-color: black;
 }

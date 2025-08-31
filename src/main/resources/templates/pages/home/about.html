@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="">
+
 <head th:replace="~{fragments/layout.html :: head}">
 </head>
+
 <body>
-<div th:replace="~{fragments/layout.html :: header}"></div>
-<!-- MAIN CONTENT - ARTICLE -->
-<article>
-    <div id="main-content" class="d-flex flex-column align-items-center">
-        <div class="d-flex justify-content-center align-items-end">
-            <h1 class="article-heading">Namaste!</h1>
-        </div>
-        <p class="article-text">
-            Welcome, I'm Natalia.
-            A yogini, traveler, and seeker of the deeper threads that weave life together. Spirituality has been
-            part of my path since childhood, though like many of us, I lost touch with it for a time. It was
-            through movement, dance, and yoga that I found my way back to myself—more grounded, open, and alive
-            than ever.
+    <div th:replace="~{fragments/layout.html :: header}"></div>
+    <!-- MAIN CONTENT - ARTICLE -->
+    <!-- Div with whole content - I need to move it below the navbar -->
+    <div style="margin-top: 200px;">
+        <article>
+            <div id="main-content" class="d-flex flex-column align-items-center">
+                <div class="d-flex justify-content-center align-items-end">
+                    <h1 class="article-heading">Namaste!</h1>
+                </div>
+                <p class="article-text">
+                    Welcome, I'm Natalia.
+                    A yogini, traveler, and seeker of the deeper threads that weave life together. Spirituality has been
+                    part of my path since childhood, though like many of us, I lost touch with it for a time. It was
+                    through movement, dance, and yoga that I found my way back to myself—more grounded, open, and alive
+                    than ever.
 
-        </p>
-        <p class="article-text">
-            Today, I feel called to share what I've learned along the way:
-            the insights gathered through travels, immersive trainings across Europe and Asia, and the quiet
-            teachings of life itself. My intention is to guide and support others in finding balance, presence,
-            and a deeper connection to themselves in this beautiful, but sometimes overwhelming world.
+                </p>
+                <p class="article-text">
+                    Today, I feel called to share what I've learned along the way:
+                    the insights gathered through travels, immersive trainings across Europe and Asia, and the quiet
+                    teachings of life itself. My intention is to guide and support others in finding balance, presence,
+                    and a deeper connection to themselves in this beautiful, but sometimes overwhelming world.
 
-        </p>
-        <p class="article-text">
-            I'm currently based in Mallorca, offering both group and private classes.
+                </p>
+                <p class="article-text">
+                    I'm currently based in Mallorca, offering both group and private classes.
 
-        </p>
-        <p class="article-text">
-            I'd love to meet you on the mat.
-        </p>
-        <p class="article-text">
-            I believe the soul speaks through stillness—and yoga is how we listen.
-        </p>
-        <img th:src="@{/images/meditating.jpg}" class="article-detail" />
+                </p>
+                <p class="article-text">
+                    I'd love to meet you on the mat.
+                </p>
+                <p class="article-text">
+                    I believe the soul speaks through stillness—and yoga is how we listen.
+                </p>
+                <img th:src="@{/images/meditating.jpg}" class="article-detail" />
+            </div>
+        </article>
     </div>
-</article>
-<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+    <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>
+
 </html>

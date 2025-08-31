@@ -6,60 +6,62 @@
 
 <body>
     <div th:replace="~{fragments/layout.html :: header}"></div>
-    <!-- MAIN CONTENT - ARTICLE -->
-    <article>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <section class="d-flex flex-column justify-content-center align-items-center">
-                <h1 th:text="${article.title}" class="article-heading"></h1>
-                <div id="article-description">
-                    <p th:text="${article.description}" class="article-text"></p>
-                </div>
-                <div id="article-content">
-                    <p th:utext="${article.content}" class="article-text"></p>
-                </div>
-                <!-- 
+
+    <!-- Div with whole content - I need to move it below the navbar -->
+    <div style="margin-top: 200px;">
+
+        <!-- MAIN CONTENT - ARTICLE -->
+        <article>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <section class="d-flex flex-column justify-content-center align-items-center">
+                    <h1 th:text="${article.title}" class="article-heading"></h1>
+                    <div id="article-description">
+                        <p th:text="${article.description}" class="article-text"></p>
+                    </div>
+                    <div id="article-content">
+                        <p th:utext="${article.content}" class="article-text"></p>
+                    </div>
+                    <!-- 
                 <img class="article-detail" th:src="${article.imgUrl}" />
             -->
-                <div id="ukazka-carouselu" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#ukazka-carouselu" data-bs-slide-to="0"
-                            class="active"></button>
-                        <button type="button" data-bs-target="#ukazka-carouselu" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#ukazka-carouselu" data-bs-slide-to="2"></button>
+                    <div id="ukazka-carouselu" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#ukazka-carouselu" data-bs-slide-to="0"
+                                class="active"></button>
+                            <button type="button" data-bs-target="#ukazka-carouselu" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#ukazka-carouselu" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div th:if="${article.imgUrl != null}" class="carousel-item active">
+                                <img th:src="${article.imgUrl}" class="d-block w-100 carousel-img">
+                            </div>
+                            <div th:if="${article.imgUrl2 != null}" class="carousel-item">
+                                <img th:src="${article.imgUrl2}" class="d-block w-100 carousel-img">
+                            </div>
+                            <div th:if="${article.imgUrl3 != null}" class="carousel-item">
+                                <img th:src="${article.imgUrl3}" class="d-block w-100 carousel-img">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#ukazka-carouselu"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#ukazka-carouselu"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <div class="carousel-inner">
-                        <div th:if="${article.imgUrl != null}" class="carousel-item active">
-                            <img th:src="${article.imgUrl}"
-                                class="d-block w-100 carousel-img">
-                        </div>
-                        <div th:if="${article.imgUrl2 != null}" class="carousel-item">
-                            <img th:src="${article.imgUrl2}"
-                                class="d-block w-100 carousel-img">
-                        </div>
-                        <div th:if="${article.imgUrl3 != null}" class="carousel-item">
-                            <img th:src="${article.imgUrl3}"
-                                class="d-block w-100 carousel-img">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#ukazka-carouselu"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#ukazka-carouselu"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </section>
+                </section>
 
-            <a th:href="@{/blog}">
-                <div class="button-submit">BACK</div>
-            </a>
+                <a th:href="@{/blog}">
+                    <div class="button-submit">BACK</div>
+                </a>
 
-        </div>
-    </article>
+            </div>
+        </article>
+    </div>
 
     <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>

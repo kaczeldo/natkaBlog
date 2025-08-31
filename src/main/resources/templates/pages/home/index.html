@@ -2,69 +2,85 @@
 <html lang="en" xmlns:th="">
 
 <head th:replace="~{fragments/layout.html :: head}">
-    <link th:href="@{/styles/styl_home.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body id="home-body">
     <div th:replace="~{fragments/layout.html :: header}"></div>
     <!-- MAIN CONTENT - ARTICLE -->
     <article>
-        <div id="main-content" class="d-flex flex-column align-items-center">
-            <h1 class="home-headline">Welcome to Yoga with Naty!</h1>
-
-            <p class="home-paragraph-first">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porta magna lorem, in viverra justo
-            </p>
-
-            <div id="home-second-par">
-                <p class="home-paragraph">
-                    pharetra non. Vivamus consequat leo sed sapien gravida tempor. Curabitur id dui eleifend, varius leo
-                    quis, scelerisque est. Etiam finibus nisl eget ligula tincidunt porta. Vivamus quis varius orci,
-                    sodales
-                    mollis ex. Nam in lacus tortor. Suspendisse at aliquet eros. Sed bibendum porttitor sagittis.
-                </p>
-                <p class="home-paragraph">
-                    Vivamus sit amet nibh ornare lectus interdum dignissim. Etiam a pellentesque velit. Donec tincidunt
-                    felis et tempus gravida. Phasellus tincidunt risus vitae faucibus cursus. Vivamus et aliquet lacus,
-                    tempus consectetur urna. Ut feugiat sagittis eros ut posuere. Interdum et malesuada fames ac ante
-                    ipsum
-                    primis in faucibus. Nulla lacinia quam in nulla efficitur hendrerit. Nulla facilisi. Aliquam
-                    volutpat
-                    tellus vel tempus tempus. Nullam vitae aliquam turpis. Donec felis erat, sodales id porta sed,
-                    mollis
-                    vitae nisi. Morbi et metus sed metus varius dignissim. Suspendisse imperdiet diam sit amet consequat
-                    aliquam. Nunc suscipit enim tortor, ut viverra erat ornare vel. Mauris arcu neque, cursus ac quam
-                    et,
-                    bibendum ornare ante.
-                </p>
+        <div id="home-whole-content" class="d-flex flex-column justify-content-center align-items-center">
+            <div class="home-section-div transparent-section">
+                <h1 class="home-headline">Welcome to Yoga with Naty</h1>
+                <p class="home-paragraph home-transparent-par"></p>
             </div>
-            <p class="home-paragraph">
-                Maecenas a sodales leo, vel tempor mauris. Nullam mattis erat sed facilisis maximus. Duis commodo
-                imperdiet erat, gravida suscipit sem varius sed. Donec a nulla eget sapien rhoncus ornare. Praesent
-                luctus egestas sagittis. Vestibulum finibus, sem ut placerat eleifend, odio dolor placerat felis, at
-                mollis nisi magna vel odio. Nulla dapibus ultricies luctus. Duis bibendum vel tortor ut hendrerit.
-            </p>
-            <p class="home-paragraph">
-                Morbi sagittis porta sapien, ut mollis tortor. Morbi aliquam, risus accumsan pretium elementum,
-                magna
-                neque consequat felis, tincidunt imperdiet mauris purus nec ante. Sed sagittis vel purus eu varius.
-                Aliquam erat volutpat. Etiam ut quam eget eros pellentesque semper. Donec tellus neque, pretium in
-                ligula ac, commodo euismod dui. Suspendisse in elit ut nisl blandit posuere. Sed sit amet ultrices
-                mi.
-                Fusce dictum, magna et tristique elementum, eros elit varius ligula, ac interdum dui diam quis
-                neque.
-                Quisque non ex gravida eros hendrerit tempus at nec metus. Phasellus ornare a erat et commodo.
-                Integer
-                lacinia ligula et dolor sodales fringilla.
-            </p>
-            <p class="home-paragraph">
-                Maecenas interdum condimentum porttitor. Nullam nisl lectus, finibus at tincidunt eu, finibus eget
-                sem.
-                Fusce vel efficitur quam, et convallis purus. Vestibulum porttitor mi ac purus sagittis facilisis
-                sed
-                vel lorem. Aliquam nisi leo, luctus vitae dolor eu, pellentesque porta mauris. Etiam volutpat varius
-                nulla. Nam mattis erat vitae leo pulvinar porta. Etiam commodo rutrum est at dictum.
-            </p>
+            <div class="home-section-div home-solid-background-div">
+                <h1 class="home-headline">What I am offering</h1>
+                <div class="row">
+                    <div class="home-inline-section col-12 col-xl-4">
+                        <h2 class="home-h2-headlines">Yoga</h2>
+                        <p class="home-paragraph">I teach mainly in Hatha, Vinyasa, and Yin yoga styles. I bring a focus
+                            on fascia and whole-body movement to my classes, creating space for release and resilience.
+                            Breath is always at the heart of my classes, leading and uniting each movement.</p>
+                        <img th:src="@{/images/sunset_prey.jpg}" class="home-inline-par-img">
+                    </div>
+                    <div class="home-inline-section col-12 col-xl-4">
+                        <h2 class="home-h2-headlines">Pranayama</h2>
+                        <p class="home-paragraph">Pranayama is the art of guiding the breath with awareness. In
+                            practice, it becomes a bridge between body and mind, awakening vitality while inviting calm.
+                            With accessible techniques, I offer a way to explore stillness, energy, and balance through
+                            the rhythm of the breath.
+                        </p>
+                        <img th:src="@{/images/pranayama.jpg}" class="home-inline-par-img">
+                    </div>
+                    <div class="home-inline-section col-12 col-xl-4">
+                        <h2 class="home-h2-headlines">Meditation</h2>
+                        <p class="home-paragraph">Meditation often unfolds naturally through practice. I support this
+                            process with guided relaxation, gentle meditation techniques, and quiet spaces for inner
+                            rest. These moments create an opportunity to connect more deeply with yourself, cultivating
+                            calm, clarity, and presence.
+                        </p>
+                        <img th:src="@{/images/meditation_by_the_sea_cut.jpg}" class="home-inline-par-img">
+                    </div>
+
+                </div>
+            </div>
+            <div class="home-section-div transparent-section d-flex flex-column align-items-center">
+                <h1 class="home-headline">Reserve now</h1>
+                <p class="home-paragraph home-transparent-par"> Reserve your yoga lesson now. All you need to do is send
+                    me message. You can use my <a th:href="@{/contact}" class="home-contact-link">contact form</a> or
+                    any other way you like.
+                    (Contact details are at the bottom of the page.)</p>
+            </div>
+            <div class="home-section-div home-solid-background-div">
+                <h1 class="home-headline">What I am offering</h1>
+                <div class="row d-flex justify-content-evenly align-items-start">
+                    <div class="home-inline-section col-12 col-xl-4">
+                        <h2 class="home-h2-headlines">Private class by the sea</h2>
+                        <p class="home-paragraph">An intimate and restorative practice in a tranquil seaside setting.
+                            Experience the flow of movement and breath in harmony with the ocean’s rhythm.</p>
+                        <img th:src="@{/images/1on1.svg}" class="home-inline-par-icon">
+                    </div>
+                    <div class="home-inline-section col-12 col-xl-4">
+                        <h2 class="home-h2-headlines">Group classes</h2>
+                        <p class="home-paragraph">Contact me for schedule for group classes.</p>
+                        <img th:src="@{/images/groupLesson.svg}" class="home-inline-par-icon">
+                    </div>
+                    <div class="home-inline-section col-12 col-xl-4">
+                        <h2 class="home-h2-headlines">Online classes</h2>
+                        <p class="home-paragraph">Try one of my free classes or book an online private or group class
+                        </p>
+                        <img th:src="@{/images/onlineLesson.svg}" class="home-inline-par-icon">
+                    </div>
+                </div>
+                <div class="home-section-div home-solid-background-div d-flex flex-column align-items-center">
+                    <h1 class="home-headline">Reserve now</h1>
+                    <p class="home-paragraph home-paragraph"> Reserve your yoga lesson now. All you need to do is
+                        send
+                        me message. You can use my <a th:href="@{/contact}" class="home-contact-link">contact form</a>
+                        or any other way you like.
+                        (Contact details are at the bottom of the page.)</p>
+                </div>
+            </div>
         </div>
     </article>
     <footer th:replace="~{fragments/layout.html :: footer}"></footer>

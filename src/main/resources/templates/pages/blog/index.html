@@ -7,48 +7,53 @@
 <body>
     <div th:replace="~{fragments/layout.html :: header}"></div>
 
-    <!-- FLASH MESSAGE -->
-    <div th:if="${success}" class="alert alert-success" role="alert">
-        <span th:text="${success}"></span>
-    </div>
 
-    <div th:if="${error}" class="alert alert-error" role="alert">
-        <span th:text="${error}"></span>
-    </div>
+    <!-- Div with whole content - I need to move it below the navbar -->
+    <div style="margin-top: 200px;">
 
-    <!-- MAIN CONTENT - ARTICLE -->
-    <article id="blog-index">
-        <p sec:authorize="hasRole('ADMIN')">
-            <a th:href="@{/blog/create}">
-                Create New
-            </a>
-        </p>
+        <!-- FLASH MESSAGE -->
+        <div th:if="${success}" class="alert alert-success" role="alert">
+            <span th:text="${success}"></span>
+        </div>
 
-        <div class="row g-3 d-flex justify-content-center">
-            <div class="col-12 col-md-6 col-xl-4 col-xxl-3" th:each="article: ${articles}">
-                <div class="card h-100">
-                    <a th:href="@{'/blog/' + ${article.articleId}}">
-                        <img class="card-img-top"
-                            th:src="@{${#strings.replace(article.imgUrl, '/images/', '/images/thumb_')}}">
-                    </a>
-                    <div class="card-body">
+        <div th:if="${error}" class="alert alert-error" role="alert">
+            <span th:text="${error}"></span>
+        </div>
+
+        <!-- MAIN CONTENT - ARTICLE -->
+        <article id="blog-index">
+            <p sec:authorize="hasRole('ADMIN')">
+                <a th:href="@{/blog/create}">
+                    Create New
+                </a>
+            </p>
+
+            <div class="row g-3 d-flex justify-content-center">
+                <div class="col-12 col-md-6 col-xl-4 col-xxl-3" th:each="article: ${articles}">
+                    <div class="card h-100">
                         <a th:href="@{'/blog/' + ${article.articleId}}">
-                            <h4 class="card-title" th:text="${article.title}"></h4>
+                            <img class="card-img-top"
+                                th:src="@{${#strings.replace(article.imgUrl, '/images/', '/images/thumb_')}}">
                         </a>
-                        <p class="card-text" th:text="${article.description}"></p>
+                        <div class="card-body">
+                            <a th:href="@{'/blog/' + ${article.articleId}}">
+                                <h4 class="card-title" th:text="${article.title}"></h4>
+                            </a>
+                            <p class="card-text" th:text="${article.description}"></p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted"
+                                th:text="${#temporals.format(article.dateCreated, 'dd.MM.yyyy')}"></small>
+                        </div>
+                        <p sec:authorize="hasRole('ADMIN')">
+                            <a th:href="@{'/blog/edit/' + ${article.articleId}}">Edit</a>
+                            <a th:href="@{'/blog/delete/' + ${article.articleId}}">Remove</a>
+                        </p>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted"
-                            th:text="${#temporals.format(article.dateCreated, 'dd.MM.yyyy')}"></small>
-                    </div>
-                    <p sec:authorize="hasRole('ADMIN')">
-                        <a th:href="@{'/blog/edit/' + ${article.articleId}}">Edit</a>
-                        <a th:href="@{'/blog/delete/' + ${article.articleId}}">Remove</a>
-                    </p>
                 </div>
             </div>
-        </div>
-    </article>
+        </article>
+    </div>
     <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>
 
