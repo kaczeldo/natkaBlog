@@ -69,22 +69,22 @@ body>header {
 }
 
 a.navbar-brand>img {
-    width: 65px;
-    height: 65px;
+    width: 85px;
+    height: 85px;
     margin: auto 10px auto 10px;
 }
 
 @media (min-width: 768px) {
     a.navbar-brand>img {
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 90px;
     }
 }
 
 @media (min-width: 1000px) {
     a.navbar-brand>img {
-        width: 75px;
-        height: 75px;
+        width: 100px;
+        height: 100px;
     }
 }
 
@@ -496,6 +496,98 @@ div.card-body>a {
 .home-contact-link:visited {
     color: #24c46c;
 }
+
+/* Main content - About page */
+.about-wrapper {
+    margin-top: 100px;
+}
+
+.about-heading {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-family: NothingYouCouldDo;
+    font-weight: bold;
+}
+
+img.about-image {
+    width: 200px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+@media (min-width: 768px) {
+    img.about-image {
+        width: 300px;
+    }
+}
+
+@media (min-width: 1000px) {
+    img.about-image {
+        max-width: 400px;
+    }
+}
+
+
+.about-text {
+    margin: 20px;
+    text-align: center;
+    max-width: 750px;
+    font-size: 1.3em;
+}
+
+/* Main content - SERVICES page */
+.services-overview-section {
+    border-right: 1px solid black;
+    text-align: center;
+}
+
+.services-overview-section > h1 {
+    margin: auto 20px auto 20px;
+    font-weight: 900;
+    font-size: 2.4em;
+    font-family: BebasNeue;
+    color: black;
+    text-align: center;
+}
+
+.services-section-last {
+    border-right: 0px;
+}
+
+ul.services-list {
+    list-style: none;
+}
+
+ul.services-list > li > h2{
+    margin: auto 20px auto 20px;
+    font-weight: 900;
+    font-size: 2.3em;
+    font-family: BebasNeue;
+    color: #443627;
+    text-align: center;
+}
+
+p.services-par {
+    max-width: 350px;
+    text-align: center;
+}
+
+.services-overview-section.yin-yoga {
+    background-color: #D1EFB5;
+}
+
+
+.services-overview-section.places {
+    background-color: #89DAFF;
+}
+
+
+.services-overview-section.format {
+    background-color: #F5CAC3;
+}
+
 
 /*Footer stylings*/
 

@@ -16,5 +16,10 @@ public class HomeController {
         return "pages/home/about";
     }
 
+    @GetMapping("/services")
+    public String renderServices() {
+        return "pages/home/services";
+    }
+
 
 }

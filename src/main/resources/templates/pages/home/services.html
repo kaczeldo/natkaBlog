@@ -4,86 +4,78 @@
 <head th:replace="~{fragments/layout.html :: head}">
 </head>
 
-<body id="home-body">
-<div th:replace="~{fragments/layout.html :: header}"></div>
-<!-- MAIN CONTENT - ARTICLE -->
-<article>
-    <div id="home-whole-content" class="d-flex flex-column justify-content-center align-items-center">
-        <div class="home-section-div transparent-section">
-            <h1 class="home-headline">The Services</h1>
-            <p class="home-paragraph home-transparent-par"></p>
+<body>
+    <div th:replace="~{fragments/layout.html :: header}"></div>
+    <!-- MAIN CONTENT - SERVICES -->
+    <article style="margin-top: 150px;">
+        <div class="row">
+            <div class="services-overview-section col-4 yin-yoga">
+                <h1>Specialization</h1>
+                <p>Below are the main areas I focus on.</p>
+                <ul class="services-list">
+                    <li>
+                        <h2>Yin Yoga</h2>
+                        <div class="row">
+                            <p class="services-par col-12"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Suspendisse quam ex, luctus ac nunc
+                                in, facilisis eleifend mi. Donec in neque pharetra, feugiat arcu eget, malesuada odio.
+                                Aliquam et ligula ac orci euismod bibendum sed nec turpis. Nullam eleifend ornare
+                                congue.
+                                Quisque elementum lorem pulvinar, congue ipsum a, facilisis nisi. Donec a molestie
+                                lorem.</p>
+                            <img th:src="@{/images/yinYoga_bigger.png}" class="home-inline-par-icon col-12">
+                        </div>
+                    </li>
+                    <li>
+                        <h2>Pranayama</h2>
+                    </li>
+                    <li>
+                        <h2>Meditation</h2>
+                    </li>
+                    <li>
+                        <h2>Hatha Yoga</h2>
+                    </li>
+                </ul>
+            </div>
+            <div class="services-overview-section col-4 places">
+                <h1>Place</h1>
+                <ul class="services-list">
+                    <li>
+                        <h2>
+                            Online Classes
+                        </h2>
+                    </li>
+                    <li>
+                        <h2>
+                            In Person Classes - Mallorca
+                        </h2>
+                    </li>
+                </ul>
+            </div>
+            <div class="services-overview-section services-section-last col-4 format">
+                <h1>Lesson Format</h1>
+                <ul class="services-list">
+                    <li>
+                        <h2>
+                            1 hour of Yin Yoga
+                        </h2>
+                    </li>
+                    <li>
+                        <h2>
+                            1 hour of Hatha Yoga</h2>
+                    </li>
+                    <li>
+                        <h2>40 minutes Yoga</h2>
+                    </li>
+                    <li>
+                        <h2>1 hour 30 minuts Yoga and Pranayama</h2>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="home-section-div home-solid-background-div">
-            <h1 class="home-headline">What I am offering</h1>
-            <div class="row">
-                <div class="home-inline-section col-12 col-xl-4">
-                    <h2 class="home-h2-headlines">Yoga</h2>
-                    <p class="home-paragraph">I teach mainly in Hatha, Vinyasa, and Yin yoga styles. I bring a focus
-                        on fascia and whole-body movement to my classes, creating space for release and resilience.
-                        Breath is always at the heart of my classes, leading and uniting each movement.</p>
-                    <img th:src="@{/images/sunset_prey.jpg}" class="home-inline-par-img">
-                </div>
-                <div class="home-inline-section col-12 col-xl-4">
-                    <h2 class="home-h2-headlines">Pranayama</h2>
-                    <p class="home-paragraph">Pranayama is the art of guiding the breath with awareness. In
-                        practice, it becomes a bridge between body and mind, awakening vitality while inviting calm.
-                        With accessible techniques, I offer a way to explore stillness, energy, and balance through
-                        the rhythm of the breath.
-                    </p>
-                    <img th:src="@{/images/pranayama.jpg}" class="home-inline-par-img">
-                </div>
-                <div class="home-inline-section col-12 col-xl-4">
-                    <h2 class="home-h2-headlines">Meditation</h2>
-                    <p class="home-paragraph">Meditation often unfolds naturally through practice. I support this
-                        process with guided relaxation, gentle meditation techniques, and quiet spaces for inner
-                        rest. These moments create an opportunity to connect more deeply with yourself, cultivating
-                        calm, clarity, and presence.
-                    </p>
-                    <img th:src="@{/images/meditation_by_the_sea_cut.jpg}" class="home-inline-par-img">
-                </div>
 
-            </div>
-        </div>
-        <div class="home-section-div transparent-section d-flex flex-column align-items-center">
-            <h1 class="home-headline">Reserve now</h1>
-            <p class="home-paragraph home-transparent-par"> Reserve your yoga lesson now. All you need to do is send
-                me message. You can use my <a th:href="@{/contact}" class="home-contact-link">contact form</a> or
-                any other way you like.
-                (Contact details are at the bottom of the page.)</p>
-        </div>
-        <div class="home-section-div home-solid-background-div">
-            <h1 class="home-headline">What I am offering</h1>
-            <div class="row d-flex justify-content-evenly align-items-start">
-                <div class="home-inline-section col-12 col-xl-4">
-                    <h2 class="home-h2-headlines">Private class by the sea</h2>
-                    <p class="home-paragraph">An intimate and restorative practice in a tranquil seaside setting.
-                        Experience the flow of movement and breath in harmony with the ocean’s rhythm.</p>
-                    <img th:src="@{/images/1on1.svg}" class="home-inline-par-icon">
-                </div>
-                <div class="home-inline-section col-12 col-xl-4">
-                    <h2 class="home-h2-headlines">Group classes</h2>
-                    <p class="home-paragraph">Contact me for schedule for group classes.</p>
-                    <img th:src="@{/images/groupLesson.svg}" class="home-inline-par-icon">
-                </div>
-                <div class="home-inline-section col-12 col-xl-4">
-                    <h2 class="home-h2-headlines">Online classes</h2>
-                    <p class="home-paragraph">Try one of my free classes or book an online private or group class
-                    </p>
-                    <img th:src="@{/images/onlineLesson.svg}" class="home-inline-par-icon">
-                </div>
-            </div>
-            <div class="home-section-div home-solid-background-div d-flex flex-column align-items-center">
-                <h1 class="home-headline">Reserve now</h1>
-                <p class="home-paragraph home-paragraph"> Reserve your yoga lesson now. All you need to do is
-                    send
-                    me message. You can use my <a th:href="@{/contact}" class="home-contact-link">contact form</a>
-                    or any other way you like.
-                    (Contact details are at the bottom of the page.)</p>
-            </div>
-        </div>
-    </div>
-</article>
-<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+    </article>
+    <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>
 
 </html>
