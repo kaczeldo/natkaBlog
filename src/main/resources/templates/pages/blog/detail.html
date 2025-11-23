@@ -8,7 +8,7 @@
     <div th:replace="~{fragments/layout.html :: header}"></div>
 
     <!-- Div with whole content - I need to move it below the navbar -->
-    <div style="margin-top: 200px;">
+    <div style="margin-top: 100px;">
 
         <!-- MAIN CONTENT - ARTICLE -->
         <article>
@@ -21,9 +21,7 @@
                     <div id="article-content">
                         <p th:utext="${article.content}" class="article-text"></p>
                     </div>
-                    <!-- 
-                <img class="article-detail" th:src="${article.imgUrl}" />
-            -->
+                    <!--
                     <div id="ukazka-carouselu" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#ukazka-carouselu" data-bs-slide-to="0"
@@ -53,6 +51,19 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
+                    -->
+                    <div id="article-images">
+                        <a th:if="${article.imgUrl != null}" th:href="${article.imgUrl}" data-lightbox="articleImages">
+                            <img th:src="${article.imgUrl}" class="article-detail-img-thumb">
+                        </a>
+                        <a th:if="${article.imgUrl2 != null}" th:href="${article.imgUrl2}" data-lightbox="articleImages">
+                            <img th:src="${article.imgUrl2}" class="article-detail-img-thumb">
+                        </a>
+                        <a th:if="${article.imgUrl3 != null}" th:href="${article.imgUrl3}" data-lightbox="articleImages">
+                            <img th:src="${article.imgUrl3}" class="article-detail-img-thumb">
+                        </a>
+                    </div>
+
                 </section>
 
                 <a th:href="@{/blog}">

@@ -157,6 +157,7 @@ li.nav-item>a.nav-link.kontakt:hover {
 }
 
 /* Main content (Article) styling*/
+
 #article-inner-wrapper {
     width: 250px;
 }
@@ -291,6 +292,25 @@ img.article-detail {
     text-align: center;
 }
 
+.article-detail-img-thumb {
+    width: 100px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+@media (min-width: 768px) {
+    .article-detail-img-thumb {
+        width: 150px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .article-detail-img-thumb {
+        width: 200px;
+    }
+}
+
 /* Main content - CONTACT PAGE */
 
 .contact-form {
@@ -414,12 +434,13 @@ div.card-body>a {
 .home-headline {
     color: rgb(176, 246, 255);
     font-weight: bold;
-    font-family: BebasNeue;
+    font-family: NothingYouCouldDo;
     margin: 20px;
     text-align: center;
+    font-size: 90px;
 }
 
-.home-solid-background-div > h1 {
+.home-solid-background-div>h1 {
     color: #ca723c;
 }
 
@@ -431,18 +452,18 @@ div.card-body>a {
 }
 
 @media (min-width: 768px) {
-    .home-inline-par-img{
+    .home-inline-par-img {
         height: 360px;
     }
 }
 
 @media (min-width: 950px) {
-    .home-inline-par-img{
+    .home-inline-par-img {
         height: 500px;
     }
 }
 
-.home-inline-par-icon{
+.home-inline-par-icon {
     width: 150px;
     height: 150px;
     border: 1px solid grey;
@@ -467,15 +488,26 @@ div.card-body>a {
     text-align: center;
 }
 
+.home-h1-headlines {
+    margin: 20px;
+    font-weight: 900;
+    font-size: 2.3em;
+    font-family: BebasNeue;
+    color: #443627;
+    text-align: center;
+}
+
 .home-transparent-par {
     color: rgb(176, 246, 255);
 }
 
-.home-inline-section{
+.home-inline-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    height: max-content;
+    margin-bottom: 20px;
 }
 
 .transparent-section {
@@ -498,6 +530,7 @@ div.card-body>a {
 }
 
 /* Main content - About page */
+
 .about-wrapper {
     margin-top: 100px;
 }
@@ -543,13 +576,13 @@ img.about-image {
     text-align: center;
 }
 
-.services-overview-section > h1 {
-    margin: auto 20px auto 20px;
+.services-overview-section>h1 {
     font-weight: 900;
     font-size: 2.4em;
     font-family: BebasNeue;
     color: black;
     text-align: center;
+    margin-top: 20px;
 }
 
 .services-section-last {
@@ -558,10 +591,11 @@ img.about-image {
 
 ul.services-list {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-ul.services-list > li > h2{
-    margin: auto 20px auto 20px;
+ul.services-list>li>h2 {
     font-weight: 900;
     font-size: 2.3em;
     font-family: BebasNeue;
@@ -588,6 +622,21 @@ p.services-par {
     background-color: #F5CAC3;
 }
 
+.services-hidden-description {
+    display: none;
+}
+
+.services-visible-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-section-button:hover {
+    cursor: pointer;
+    color: #ca723c;
+}
 
 /*Footer stylings*/
 
