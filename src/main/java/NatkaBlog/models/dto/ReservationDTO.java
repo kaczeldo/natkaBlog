@@ -18,4 +18,53 @@ public class ReservationDTO {
     private ReservationState state;
 
     private Instant expiresAt;
+
+    public long getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(long reservationId) {
+        this.reservationId = reservationId;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public ClassEntity getClassEntity() {
+        return classEntity;
+    }
+
+    public void setClassEntity(ClassEntity classEntity) {
+        this.classEntity = classEntity;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public ReservationState getState() {
+        return state;
+    }
+
+    public void setState(ReservationState state) {
+        this.state = state;
+    }
+
+    public Instant getExpiresAt() {
+        return expiresAt;
+    }
+
+    public void setExpiresAt(Instant expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
 }
