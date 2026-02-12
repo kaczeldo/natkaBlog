@@ -51,6 +51,14 @@ public class ReservationDTO {
         this.createdAt = createdAt;
     }
 
+    public long getClassId() {
+        return this.classEntity.getClassId();
+    }
+
+    public long getUserId(){
+        return this.user.getUserId();
+    }
+
     public ReservationState getState() {
         return state;
     }

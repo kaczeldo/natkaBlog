@@ -43,4 +43,12 @@ public class ClassEntity {
     @Enumerated(EnumType.STRING)
     @Column (nullable = false)
     private ClassState classState;
+
+    public long getClassId() {
+        return classId;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
 }
