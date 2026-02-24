@@ -85,6 +85,9 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void remove(long reservationId) {
+        ReservationEntity reservation = reservationRepository.findById(reservationId)
+                .orElseThrow(() -> new EntityNotFoundException("Reservation not found with id: " + reservationId));
 
+        reservationRepository.delete(reservation);
     }
 }
