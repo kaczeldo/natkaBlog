@@ -48,6 +48,9 @@ public class PaymentEntity {
     @Column (nullable = false)
     private Instant createdAt;
 
+    @Column
+    private Instant updatedAt;
+
     @Column(name = "external_payment_id", unique = true)
     private String externalPaymentId;
 }

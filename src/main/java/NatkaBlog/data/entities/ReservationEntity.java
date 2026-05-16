@@ -43,6 +43,13 @@ public class ReservationEntity {
     @Column
     private Instant expiresAt;
 
+    @Column
+    private Instant updatedAt;
+
+    public void setState(ReservationState newState) {
+        this.state = newState;
+    }
+
     public ClassEntity getClassEntity() {
         return classEntity;
     }
@@ -66,5 +73,25 @@ public class ReservationEntity {
 
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Long getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(Long reservationId) {
+        this.reservationId = reservationId;
+    }
+
+    public ReservationState getState() {
+        return state;
+    }
+
+    public Instant getExpiresAt() {
+        return expiresAt;
+    }
+
+    public void setExpiresAt(Instant expiresAt) {
+        this.expiresAt = expiresAt;
     }
 }

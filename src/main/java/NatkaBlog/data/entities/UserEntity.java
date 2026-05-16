@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -23,6 +24,17 @@ public class UserEntity implements UserDetails {
 
     @Column(nullable = false)
     private boolean admin;
+
+    public List<ReservationEntity> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<ReservationEntity> reservations) {
+        this.reservations = reservations;
+    }
+
+    @OneToMany(mappedBy = "user")
+    private List<ReservationEntity> reservations = new ArrayList<>();
 
     // end region
 

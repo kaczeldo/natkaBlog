@@ -43,6 +43,12 @@ public class InvoiceEntity {
     private Instant issuedAt;
 
     @Column(nullable = false)
+    private Instant createdAt;
+
+    @Column
+    private Instant updatedAt;
+
+    @Column(nullable = false)
     private Instant dueAt;
 
     @Column(nullable = false, precision = 10, scale = 2)

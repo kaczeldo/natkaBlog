@@ -1,7 +1,10 @@
 package NatkaBlog.models.enums;
 
 public enum ReservationState {
-    CREATED,
+
+    ACTIVE,
     PAID,
-    CANCELLED
+    CANCELLED,
+    EXPIRED,
+    WAITING_FOR_PAYMENT
 }
