@@ -4,6 +4,8 @@ import NatkaBlog.data.entities.ReservationEntity;
 import NatkaBlog.models.enums.ReservationState;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<ReservationEntity, Long> {
@@ -13,6 +15,16 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
             long classId,
             ReservationState state
     );
-    List<ReservationEntity> findByUser_UserId(long userId);
+
+    List<ReservationEntity> findByUser_UserIdAndStateOrderByClassEntity_ClassFromAsc(long userId,
+                                                                                     ReservationState state);
+    List<ReservationEntity> findByClassEntity_ClassIdAndStateOrderByCreatedAtAsc(long classId, ReservationState state);
+
+    List<ReservationEntity> findByClassEntity_ClassFromBetweenAndStateOrderByClassEntity_ClassFromAsc(
+            LocalDateTime start, LocalDateTime end, ReservationState state);
+
+    List<ReservationEntity> findByClassEntity_ClassFromGreaterThanAndState(LocalDateTime date, ReservationState state);
+    List<ReservationEntity> findByClassEntity_ClassFromGreaterThanEqualAndStateOrderByClassEntity_ClassFromAsc
+            (LocalDateTime date, ReservationState state);
 
 }

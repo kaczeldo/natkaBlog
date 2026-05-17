@@ -16,6 +16,7 @@ public interface ReservationService {
 
     ReservationDTO getById(long reservationId);
 
-    void edit(ReservationDTO reservationDTO);
+    List<ReservationDTO> getFromDate(LocalDate date);
+
     void remove(long reservationId);
 }

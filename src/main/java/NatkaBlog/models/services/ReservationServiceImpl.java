@@ -9,6 +9,10 @@ import NatkaBlog.data.repositories.UserRepository;
 import NatkaBlog.models.dto.ReservationDTO;
 import NatkaBlog.models.dto.mappers.ReservationMapper;
 import NatkaBlog.models.enums.ReservationState;
+import NatkaBlog.models.exceptions.ClassCapacityExceededException;
+import NatkaBlog.models.exceptions.DuplicateReservationException;
+import NatkaBlog.models.exceptions.PastClassReservationException;
+import NatkaBlog.models.exceptions.ReservationNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,17 +53,13 @@ public class ReservationServiceImpl implements ReservationService {
 
         // validace zda rezervace jiz nevyprsela
         if (classEntity.getClassFrom().isBefore(LocalDateTime.now())) {
-            throw new IllegalArgumentException("Cannot reserve past class");
-        }
-
-        if (classEntity.getClassTo().isAfter((LocalDateTime.now()))) {
-            throw new IllegalArgumentException("Cannot reserve completed class");
+            throw new PastClassReservationException("Cannot reserve past class");
         }
 
         // validace jestli rezervace jiz existuje
         boolean alreadyExists = reservationRepository.existsByUser_UserIdAndClassEntity_ClassId(userId, classId);
         if (alreadyExists) {
-            throw new IllegalArgumentException("User already has reservation for this class");
+            throw new DuplicateReservationException("User already has reservation for this class");
         }
 
         long reserved = reservationRepository.countByClassEntity_ClassIdAndState(
@@ -67,7 +67,7 @@ public class ReservationServiceImpl implements ReservationService {
         );
         int capacity = classEntity.getCapacity();
         if ((capacity - reserved) <= 0){
-            throw new IllegalArgumentException("The capacity is full");
+            throw new ClassCapacityExceededException("The capacity is full");
         }
         ReservationEntity reservationEntity = new ReservationEntity();
 
@@ -90,37 +90,77 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<ReservationDTO> getByUser(long userId) {
         return reservationRepository.
-                findByUser_UserId(userId).
+                findByUser_UserIdAndStateOrderByClassEntity_ClassFromAsc(userId, ReservationState.ACTIVE).
                 stream().
                 map(reservationMapper::toDTO).
                 toList();
     }
 
+    /**
+     * Tato metoda vraci vsechny rezervace na danou hodinu/lekci
+     * @param classId
+     * @return {List<ReservationEntity>} seznam (List) rezervaci pro dane class Id
+     */
     @Override
     public List<ReservationDTO> getByClass(long classId) {
-        return List.of();
+        return reservationRepository
+                .findByClassEntity_ClassIdAndStateOrderByCreatedAtAsc(classId, ReservationState.ACTIVE)
+                .stream()
+                .map(reservationMapper::toDTO)
+                .toList();
     }
 
+    /**
+     * Tato metoda vraci vsechny rezervace na hodinu/lekci v dane datum.
+     * Takze pokud existuje nejaka rezervace na lekci, ktera se odehrava v dane datum,
+     * vrati ji to.
+     * @param date
+     * @return {List<ReservationEntity>}
+     */
     @Override
     public List<ReservationDTO> getByDate(LocalDate date) {
-        return List.of();
+
+        LocalDateTime start = date.atStartOfDay();
+        LocalDateTime end = date.plusDays(1).atStartOfDay();
+        return  reservationRepository
+                .findByClassEntity_ClassFromBetweenAndStateOrderByClassEntity_ClassFromAsc(start, end, ReservationState.ACTIVE)
+                .stream()
+                .map(reservationMapper::toDTO)
+                .toList();
     }
 
+    /**
+     * Vraci rezervaci podle id.
+     * @param reservationId
+     * @return
+     */
     @Override
     public ReservationDTO getById(long reservationId) {
-        return null;
+        return reservationMapper.toDTO(reservationRepository
+                .findById(reservationId)
+                .orElseThrow(() -> new ReservationNotFoundException("reservation not found")));
     }
 
+    /**
+     * Vraci vsechny budouci rezervace od daneho data, vcetne.
+     * @param date
+     * @return
+     */
     @Override
-    public void edit(ReservationDTO reservationDTO) {
-
+    public List<ReservationDTO> getFromDate(LocalDate date){
+        return reservationRepository
+                .findByClassEntity_ClassFromGreaterThanEqualAndStateOrderByClassEntity_ClassFromAsc(date.atStartOfDay(),
+                        ReservationState.ACTIVE)
+                .stream()
+                .map(reservationMapper::toDTO)
+                .toList();
     }
 
     @Override
     public void remove(long reservationId) {
         ReservationEntity reservation = reservationRepository.findById(reservationId)
-                .orElseThrow(() -> new EntityNotFoundException("Reservation not found with id: " + reservationId));
+                .orElseThrow(() -> new ReservationNotFoundException("Reservation not found with id: " + reservationId));
 
-        reservationRepository.delete(reservation);
+        reservation.setState(ReservationState.CANCELLED);
     }
 }
