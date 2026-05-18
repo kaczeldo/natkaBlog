@@ -66,7 +66,6 @@ public class ReservationEntity {
         this.user = user;
     }
 
-
     public Instant getCreatedAt() {
         return createdAt;
     }

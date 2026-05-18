@@ -19,6 +19,9 @@ public class ReservationDTO {
 
     private Instant expiresAt;
 
+
+    private Instant updatedAt;
+
     public long getReservationId() {
         return reservationId;
     }
@@ -73,6 +76,14 @@ public class ReservationDTO {
 
     public void setExpiresAt(Instant expiresAt) {
         this.expiresAt = expiresAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
 }
